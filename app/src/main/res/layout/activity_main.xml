@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:text="Select Date and Time"
         android:layout_below="@id/spinnerAppointmentTimes"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="17dp"
         android:layout_centerHorizontal="true"/>
 
     <TextView

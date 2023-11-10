@@ -21,7 +21,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText etName, etAge, etSex, etPhone;
+    private EditText etName, etAge, etSex;
     private Spinner spinnerAppointmentTimes;
     private Button btnSelectDateTime;
     private TextView tvSelectedDateTime;
@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         etName = findViewById(R.id.etName);
         etAge = findViewById(R.id.etAge);
         etSex = findViewById(R.id.etSex);
-        etPhone = findViewById(R.id.etPhone);
         spinnerAppointmentTimes = findViewById(R.id.spinnerAppointmentTimes);
         btnSelectDateTime = findViewById(R.id.btnSelectDateTime);
         tvSelectedDateTime = findViewById(R.id.tvSelectedDateTime);
