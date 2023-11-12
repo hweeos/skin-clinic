@@ -12,8 +12,10 @@
         android:layout_height="wrap_content"
         android:text="Book Appointment"
         android:layout_centerHorizontal="true"
+        android:textColor="@android:color/holo_red_light"
         android:textSize="30sp"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="80dp"/>
 
     <EditText
         android:id="@+id/etName"
@@ -22,9 +24,10 @@
         android:layout_below="@+id/tvBookAppointment"
         android:hint="Name"
         android:inputType="textPersonName"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
+        android:layout_marginRight="15dp"
+        android:background="@drawable/custom_edittext_background"/>
 
     <EditText
         android:id="@+id/etAge"
@@ -33,9 +36,10 @@
         android:hint="Age"
         android:inputType="number"
         android:layout_below="@id/etName"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
+        android:layout_marginRight="15dp"
+        android:background="@drawable/custom_edittext_background"/>
 
     <EditText
         android:id="@+id/etSex"
@@ -44,9 +48,10 @@
         android:hint="Sex"
         android:inputType="textCapCharacters"
         android:layout_below="@id/etAge"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
+        android:layout_marginRight="15dp"
+        android:background="@drawable/custom_edittext_background"/>
 
     <EditText
         android:id="@+id/etPhone"
@@ -55,9 +60,10 @@
         android:hint="Phone"
         android:inputType="phone"
         android:layout_below="@id/etSex"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
+        android:layout_marginRight="15dp"
+        android:background="@drawable/custom_edittext_background"/>
 
     <EditText
         android:id="@+id/etResidence"
@@ -66,9 +72,10 @@
         android:hint="Residence"
         android:inputType="textPostalAddress"
         android:layout_below="@id/etPhone"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
+        android:layout_marginRight="15dp"
+        android:background="@drawable/custom_edittext_background"/>
 
     <Spinner
         android:id="@+id/spinnerAppointmentTimes"
@@ -85,6 +92,8 @@
         android:layout_height="wrap_content"
         android:text="Select Date and Time"
         android:layout_below="@id/spinnerAppointmentTimes"
+        android:background="@android:color/white"
+        android:textColor="@android:color/black"
         android:layout_marginTop="17dp"
         android:layout_centerHorizontal="true"/>
 
@@ -96,4 +105,18 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"/>
 
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation_menu"/>
+
 </RelativeLayout>
+

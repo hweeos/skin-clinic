@@ -1,10 +1,13 @@
 package com.example.skinclinic;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -13,6 +16,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -37,6 +42,15 @@ public class MainActivity extends AppCompatActivity {
         btnSelectDateTime = findViewById(R.id.btnSelectDateTime);
         tvSelectedDateTime = findViewById(R.id.tvSelectedDateTime);
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(onNvav);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, new FragmentAppointment())
+                .commit();
+
+
         btnSelectDateTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,6 +61,31 @@ public class MainActivity extends AppCompatActivity {
         // Populate the spinner with available appointment times
         populateAppointmentTimesSpinner();
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener onNvav = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            Fragment selected = null;
+            int itemId = item.getItemId();
+
+            if (itemId == R.id.action_appointment) {
+                selected = new FragmentAppointment();
+            } else if (itemId == R.id.action_prescriptions) {
+                selected = new FragmentPrescription();
+            } else if (itemId == R.id.action_history) {
+                selected = new FragmentHistory();
+            }
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, selected)
+                    .commit();
+
+            return true;
+        }
+    };
+
 
     private void showDateTimePicker() {
         // Implement date and time picker logic here
